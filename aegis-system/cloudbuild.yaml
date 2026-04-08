@@ -1,0 +1,78 @@
+steps:
+  # Step 1: Build Backend Image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$_PROJECT_ID/aegis-backend:latest', '-f', 'Dockerfile.backend', '.']
+
+  # Step 2: Push Backend Image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$_PROJECT_ID/aegis-backend:latest']
+
+  # Step 3: Deploy Backend
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'aegis-backend'
+      - '--image'
+      - 'gcr.io/$_PROJECT_ID/aegis-backend:latest'
+      - '--region'
+      - '$_REGION'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--set-secrets'
+      - 'GOOGLE_API_KEY=GOOGLE_API_KEY:latest,GROQ_API_KEY=GROQ_API_KEY:latest,TOGETHER_API_KEY=TOGETHER_API_KEY:latest,DB_PASSWORD=DB_PASSWORD:latest'
+      - '--set-env-vars'
+      - 'DB_USER=aegis,DB_NAME=aegis_db,DB_HOST=/cloudsql/$_PROJECT_ID:$_REGION:$_DB_INSTANCE,LLM_MODEL=gemini-2.5-flash,RED_TEAM_THRESHOLD=0.65'
+      - '--add-cloudsql-instances'
+      - '$_PROJECT_ID:$_REGION:$_DB_INSTANCE'
+      - '--cpu'
+      - '1'
+      - '--memory'
+      - '2Gi'
+      - '--min-instances'
+      - '0'
+      - '--max-instances'
+      - '5'
+      - '--timeout'
+      - '300s'
+
+  # Step 4: Build Frontend Image with Live Backend URL
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build', '-t', 'gcr.io/$_PROJECT_ID/aegis-frontend:latest', 
+      '-f', 'frontend/Dockerfile', '.',
+      '--build-arg', 'NEXT_PUBLIC_API_URL=https://aegis-backend-erc5dk3kia-uc.a.run.app'
+    ]
+
+  # Step 5: Push Frontend Image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$_PROJECT_ID/aegis-frontend:latest']
+
+  # Step 6: Deploy Frontend with Live Backend URL
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'aegis-frontend'
+      - '--image'
+      - 'gcr.io/$_PROJECT_ID/aegis-frontend:latest'
+      - '--region'
+      - '$_REGION'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--set-env-vars'
+      - 'NEXT_PUBLIC_API_URL=https://aegis-backend-erc5dk3kia-uc.a.run.app'
+      - '--cpu'
+      - '1'
+      - '--memory'
+      - '512Mi'
+      - '--max-instances'
+      - '5'
+
+images:
+  - 'gcr.io/$_PROJECT_ID/aegis-backend:latest'
+  - 'gcr.io/$_PROJECT_ID/aegis-frontend:latest'

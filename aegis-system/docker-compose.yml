@@ -1,0 +1,50 @@
+version: "3.8"
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: aegis
+      POSTGRES_PASSWORD: aegis_secure_2024
+      POSTGRES_DB: aegis_db
+    ports:
+      - "5433:5432"
+    command: >
+      postgres -c shared_preload_libraries=vector -c max_connections=200
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aegis"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg2://aegis:aegis_secure_2024@postgres:5432/aegis_db
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+      LLM_MODEL: gemini-2.0-flash
+      RED_TEAM_THRESHOLD: 0.65
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - .:/app
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

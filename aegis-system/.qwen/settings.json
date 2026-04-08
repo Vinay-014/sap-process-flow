@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker-compose *)",
+      "Bash(python *)",
+      "Bash(pip install *)",
+      "Bash(venv\\scripts\\python.exe *)",
+      "Bash(docker exec *)",
+      "Bash(docker restart *)",
+      "Bash(timeout *)",
+      "Bash(netstat *)",
+      "Bash(findstr *)",
+      "Bash(taskkill *)",
+      "Bash(get-process *)",
+      "Bash(select-object *)",
+      "Bash(net *)",
+      "Bash(type *)",
+      "Bash(rmdir *)",
+      "Bash(set *)",
+      "Bash(psql *)",
+      "Bash(curl *)",
+      "Bash(npm install)",
+      "Bash(npm run *)",
+      "Bash(echo.)",
+      "Bash(cd *)",
+      "Bash(setx *)",
+      "Bash(sc *)",
+      "Bash(\"c:\\program files\\docker\\docker\\docker desktop.exe\")",
+      "Bash(start *)",
+      "Bash(docker ps)",
+      "Bash(where *)",
+      "Bash(dir *)",
+      "Bash(\"c:\\program files\\postgresql\\18\\bin\\psql.exe\" *)",
+      "Bash(del *)",
+      "Bash(echo *)",
+      "Bash(docker start *)",
+      "Bash(do *)",
+      "Bash(npx *)"
+    ]
+  },
+  "$version": 3
+}
