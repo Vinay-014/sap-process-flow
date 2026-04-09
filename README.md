@@ -13,7 +13,7 @@
 
 ##  Problem Statement
 
-AEGIS is a strategic command center that manages high-stakes operations via a multi-agent hierarchy, utilizing Google Cloud (AlloyDB, Cloud Run) and MCP tool integration. AEGIS optimizes for **resilience and asymmetric advantage**, not convenience.
+AEGIS functions as a strategic command center for high-stakes operations, employing a multi-agent hierarchical architecture integrated with Google Cloud services (AlloyDB, Cloud Run) and MCP tooling. The system prioritizes **operational resilience** and **asymmetric strategic advantage** over conventional convenience metrics.
 
 ---
 
