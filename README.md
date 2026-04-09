@@ -19,7 +19,7 @@ AEGIS is a strategic command center that manages high-stakes operations via a mu
 
 ##  Architecture Overview
 
-![AEGIS Architecture Diagram](./frontend/Gemini_Generated_Image.PNG)
+![AEGIS Architecture Diagram](./Gemini_Generated_Image.PNG)
 
 ---
 
