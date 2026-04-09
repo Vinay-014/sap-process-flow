@@ -5,9 +5,9 @@
 
 ## Demo Video
 
-[![AEGIS v2.0 Demonstration](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://drive.google.com/file/d/1EqRYhB0T_Q1etZXtdOHzvvc5Hlp-1nyq/view?usp=drivesdk)
+[![AEGIS v2.0 Demonstration](https://drive.google.com/file/d/1EqRYhB0T_Q1etZXtdOHzvvc5Hlp-1nyq/view?usp=drivesdk)
 
-*Click the image above to view the complete system walkthrough, including agent orchestration, adversarial debate cycles, geospatial intelligence visualization, and real-time canary security auditing.*
+*Click the link above to view the complete system walkthrough, including agent orchestration, adversarial debate cycles, geospatial intelligence visualization, and real-time canary security auditing.*
 
 ---
 
