@@ -19,45 +19,7 @@ AEGIS is a strategic command center that manages high-stakes operations via a mu
 
 ##  Architecture Overview
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                    AEGIS EXECUTIVE WAR ROOM                         │
-│                    Next.js 14 + Tailwind CSS                        │
-│  ┌──────────┬──────────┬──────────┬──────────┬──────────┬────────┐ │
-│  │   COP    │ Missions │  Agents  │ Spatial  │ Temporal │ Canary │ │
-│  │Dashboard │  Panel   │   Logs   │   Grid   │Scrubbing │Monitor │ │
-│  └──────────┴──────────┴──────────┴──────────┴──────────┴────────┘ │
-└──────────────────────────────┬──────────────────────────────────────┘
-                               │ REST API
-┌──────────────────────────────▼──────────────────────────────────────┐
-│                      FASTAPI BACKEND                                │
-│  ┌──────────────────────────────────────────────────────────────┐  │
-│  │              LangGraph Agent Orchestrator                     │  │
-│  │                                                               │  │
-│  │  COMMANDER ──► SENTINEL ──► FORGE ──► ┌─────────────┐       │  │
-│  │                                       │  NEMESIS    │       │  │
-│  │                                       │     ↕       │ CYCLE │  │
-│  │                                       │  BASTION    │       │  │
-│  │                                        └─────┬───────┘       │  │
-│  │                                              ▼               │  │
-│  │                                        ECHO (Canary)         │  │
-│  └──────────────────────────────────────────────────────────────┘  │
-│                               │                                     │
-│  ┌──────────────┐  ┌──────────────────────┐  ┌──────────────────┐  │
-│  │ MCP Bridge   │  │ Execution Engine     │  │ Spatial-Temporal │  │
-│  │ Overt/Covert │  │ Hot-Swap Logic       │  │ PostGIS Engine   │  │
-│  └──────────────┘  └──────────────────────┘  └──────────────────┘  │
-└──────────────────────────────┬──────────────────────────────────────┘
-                               │ SQLAlchemy + pgvector
-┌──────────────────────────────▼──────────────────────────────────────┐
-│                     DATABASE LAYER                                  │
-│  PostgreSQL 16 + pgvector + PostGIS                                 │
-│  ┌──────────┬──────────┬──────────┬──────────┬──────────┐         │
-│  │ Missions │TaskTrees │ Canaries │  Intel   │ Spatial  │         │
-│  │          │  Nodes   │  Audit   │  Reports │  Events  │         │
-│  └──────────┴──────────┴──────────┴──────────┴──────────┘         │
-└─────────────────────────────────────────────────────────────────────┘
-```
+![AEGIS Architecture Diagram](./aegis-system/frontend/Gemini_Generated_Image_ncur2nncur2nncur.png)
 
 ---
 
