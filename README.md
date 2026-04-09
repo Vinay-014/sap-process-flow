@@ -1,6 +1,6 @@
 # AEGIS v2.0 — Autonomous Executive & Geospatial Intelligence System
 
-> **Google Gen AI Academy Hackathon Submission**  
+> **Google Gen AI Academy Hackathon Submission** (please ignore the downloads/sap-process-flow folder which is sitting above)
 > *Strategic Command Center with Multi-Agent Adversarial Workflow Orchestration*
 
 ## Demo Video
