@@ -3,8 +3,6 @@
 > **Google Gen AI Academy Hackathon Submission**
 > *Strategic Command Center with Multi-Agent Adversarial Workflow Orchestration*
 
-> (please ignore the downloads/sap-process-flow folder which is sitting above)
-
 ## Demo Video
 
 [![AEGIS v2.0 Demonstration](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://drive.google.com/file/d/1EqRYhB0T_Q1etZXtdOHzvvc5Hlp-1nyq/view?usp=drivesdk)
