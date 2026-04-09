@@ -3,6 +3,12 @@
 > **Google Gen AI Academy Hackathon Submission**  
 > *Strategic Command Center with Multi-Agent Adversarial Workflow Orchestration*
 
+## Demo Video
+
+[![AEGIS v2.0 Demonstration](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://drive.google.com/file/d/1EqRYhB0T_Q1etZXtdOHzvvc5Hlp-1nyq/view?usp=drivesdk)
+
+*Click the image above to view the complete system walkthrough, including agent orchestration, adversarial debate cycles, geospatial intelligence visualization, and real-time canary security auditing.*
+
 ---
 
 ##  Problem Statement
@@ -203,17 +209,6 @@ docker-compose up --build
 
 ---
 
-##  Frontend Features
-
-* **Common Operating Picture (COP):** Central dashboard with DEFCON-style threat levels, mission progress, agent heartbeat
-* **Mission Panel:** Three-path plan display (Overt/Covert/Contingency) with canary status
-* **Agent Logic Logs:** Full execution logs + NEMESIS ↔ BASTION debate visualization
-* **Spatial Grid:** Leaflet-based geospatial map with event markers
-* **Temporal Scrubbing:** Timeline playback with start/pause/scrub controls
-* **Canary Monitor:** Security audit dashboard with canary distribution chart
-
----
-
 ##  Tech Stack
 
 ### Backend
@@ -316,7 +311,6 @@ aegis-system/
 * Canary entries detect unauthorized MCP tool access
 * MCP Bridge classifies all data flows (Overt vs Covert)
 * Audit log tracks every tool execution
-
 
 ---
 
